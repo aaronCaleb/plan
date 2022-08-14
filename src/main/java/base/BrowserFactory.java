@@ -10,6 +10,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -26,21 +27,22 @@ public class BrowserFactory {
             WebDriverManager.chromedriver().setup();
             System.setProperty("WebDriver.chrome.silenceOutput", "true");
             ChromeOptions chromeOptions = setChromeOptions();
-            //driver=new ChromeDriver(chromeOptions);
+            driver=new ChromeDriver(chromeOptions);
             //driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
-            driver = new RemoteWebDriver(new URL("http://54.206.101.220:4444/"), chromeOptions);
+            //driver = new RemoteWebDriver(new URL("http://54.206.101.220:4444/"), chromeOptions);
 
         } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions firefoxOptions = setFirefoxOptions();
-            //driver=new FirefoxDriver(firefoxOptions);
-            driver = new RemoteWebDriver(new URL("http://54.206.101.220:4444/"), firefoxOptions);
+            driver=new FirefoxDriver(firefoxOptions);
+            //driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxOptions);
+            //driver = new RemoteWebDriver(new URL("http://54.206.101.220:4444/"), firefoxOptions);
 
         } else if (browser.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions edgeOptions = setEdgeOptions();
-            //driver=new EdgeDriver();
-            driver = new RemoteWebDriver(new URL("http://54.206.101.220:4444/"), edgeOptions);
+            driver=new EdgeDriver();
+            //driver = new RemoteWebDriver(new URL("http://54.206.101.220:4444/"), edgeOptions);
         }
 
         return driver;
@@ -48,8 +50,11 @@ public class BrowserFactory {
 
     private ChromeOptions setChromeOptions() {
         ChromeOptions chromeOptions = new ChromeOptions();
+        //DesiredCapabilities desiredCapabilities=new DesiredCapabilities();
         chromeOptions.addArguments("--incognito");
         chromeOptions.addArguments("start-maximized");
+        //desiredCapabilities.setCapability("browser", "chrome");
+        //desiredCapabilities.setCapability("browser_version","latest");
         chromeOptions.getLogLevel();
 
         return chromeOptions;

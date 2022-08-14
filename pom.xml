@@ -13,7 +13,7 @@
 
     <properties>
         <javamail.version>1.4.7</javamail.version>
-        <selenium.version>4.3.0</selenium.version>
+        <selenium.version>4.4.0</selenium.version>
         <rest.assured.version>5.1.1</rest.assured.version>
         <rest.assured.all>5.1.1</rest.assured.all>
         <restassured.jsonPath>5.1.1</restassured.jsonPath>
