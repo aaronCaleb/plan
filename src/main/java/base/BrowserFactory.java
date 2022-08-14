@@ -41,7 +41,7 @@ public class BrowserFactory {
         } else if (browser.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions edgeOptions = setEdgeOptions();
-            driver=new EdgeDriver();
+            driver=new EdgeDriver(edgeOptions);
             //driver = new RemoteWebDriver(new URL("http://54.206.101.220:4444/"), edgeOptions);
         }
 
