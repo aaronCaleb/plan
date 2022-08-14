@@ -19,7 +19,7 @@
     </test>
 
     <test name = "EndToEndSuccessErrorMessageValidationWithInvalidDataTest">
-    <parameter name="browser" value="edge"/>
+    <parameter name="browser" value="firefox"/>
     <classes>
         <class name = "testcases.TL03_ValidatingErrorMessagesWithInvalidDataTest" />
     </classes>
